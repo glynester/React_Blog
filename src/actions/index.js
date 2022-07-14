@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const FETCH_POSTS = 'fetch_posts';
 export const CREATE_POST = 'create_post';
+export const FETCH_POST = 'fetch_post';
 
 const ROOT_URL = "http://reduxblog.herokuapp.com/api";
 const API_KEY = "?key=mghasfyp";
@@ -25,6 +26,14 @@ export function createPost(values, callback){
   }
 }
 
+
+export function fetchPost(id){
+  const request = axios.get(`${ROOT_URL}/posts/${id}`);
+  return {
+    type: FETCH_POST,
+    payload: request
+  };
+}
 
 // Whenever we are thinking about making network requests inside of an action creator, we have to install Axios to make the actual request and we have to install Redux promise to handle the asynchronous nature of the request itself.
 

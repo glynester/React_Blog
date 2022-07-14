@@ -8,6 +8,7 @@ import promise from 'redux-promise';
 // import App from './components/app';
 import PostsIndex from './components/posts_index';
 import PostsNew from './components/posts_new';
+import PostsShow from './components/posts_show';
 import reducers from './reducers';
 
 // We're going to import Redux Promise and then wire that up to the apply middleware call. So we'll import promise from Redux-Promise and then we will pass that into the applymiddleware call right here.
@@ -35,6 +36,7 @@ ReactDOM.render(
     <div>
       <Switch>
         <Route path='/posts/new' component={PostsNew} />
+        <Route path='/posts/:id' component={PostsShow} />
         <Route path="/" component={PostsIndex} />
       </Switch>
     </div>

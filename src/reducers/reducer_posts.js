@@ -1,8 +1,16 @@
 import _ from 'lodash';
-import { FETCH_POSTS } from '../actions';
+import { FETCH_POSTS, FETCH_POST } from '../actions';
 
 export default function(state={}, action){
   switch (action.type){
+    case FETCH_POST:
+      //  take all the posts that we've already fetched and include them in here - ...state
+      // we need to make sure that this object right here contains the ID of this post as a key.
+      const post=action.payload.data;
+      // const newState= { ...state };
+      // newState[post.id] = post;
+      // return newState;
+      return {...state, [post.id]: post}
     case FETCH_POSTS: 
       console.log("action.payload.data=>",action.payload.data); // Array of posts
       // return _.mapKeys(action.payload.data,'id');  // Not working due to CORS error
